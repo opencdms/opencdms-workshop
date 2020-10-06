@@ -25,3 +25,147 @@ pip3 install -r requirements.txt
 jupyter notebook
 
 ```
+
+### The following section gives an example of a Jupyter notebook session
+
+```python
+import os
+from pathlib import Path
+from opencdms import MidasOpen
+```
+
+```python
+connection = os.path.join(
+    Path.home(), 'work', 'opencdms-dev', 'git', 'opencdms-test-data')
+```
+
+```python
+session = MidasOpen(connection)
+```
+
+```python
+filters = {
+    'src_id': 838,
+    'period': 'hourly',
+    'year': 1991,
+    'elements': ['wind_speed', 'wind_direction'],
+}
+```
+
+```python
+obs = session.obs(**filters)
+```
+
+```python
+obs
+
+```
+
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ob_time</th>
+      <th>src_id</th>
+      <th>wind_direction</th>
+      <th>wind_speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1991-01-01 00:00:00</td>
+      <td>838</td>
+      <td>230.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1991-01-01 01:00:00</td>
+      <td>838</td>
+      <td>230.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1991-01-01 02:00:00</td>
+      <td>838</td>
+      <td>210.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1991-01-01 03:00:00</td>
+      <td>838</td>
+      <td>200.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1991-01-01 04:00:00</td>
+      <td>838</td>
+      <td>220.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>16212</th>
+      <td>1991-12-31 19:00:00</td>
+      <td>838</td>
+      <td>190.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>16213</th>
+      <td>1991-12-31 20:00:00</td>
+      <td>838</td>
+      <td>220.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>16214</th>
+      <td>1991-12-31 21:00:00</td>
+      <td>838</td>
+      <td>210.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>16215</th>
+      <td>1991-12-31 22:00:00</td>
+      <td>838</td>
+      <td>200.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>16216</th>
+      <td>1991-12-31 23:00:00</td>
+      <td>838</td>
+      <td>220.0</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>16217 rows × 4 columns</p>
+</div>
+
+```python
+type(obs)
+
+```
+>    pandas.core.frame.DataFrame
+
+```python
+from opencdms.process.climatol import windrose
+```
+
+```python
+windrose(obs)
+```
