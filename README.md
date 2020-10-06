@@ -6,6 +6,8 @@
 sudo apt install python3-dev r-base
 # curl required for magick library
 sudo apt-get install libcurl4-openssl-dev
+# At the time of writing (Oct 2020), the imagemagick ppa is not
+# available for Unbuntu 20.04
 sudo add-apt-repository -y ppa:cran/imagemagick
 sudo apt-get update
 sudo apt-get install -y libmagick++-dev
