@@ -19,7 +19,9 @@ install.packages("magick")
 # In Python, rpy2 is not currently a dependency in pyopencdms becase
 # R must be installed before pip can install rpy2.
 # Therefore install rpy2 (and other dependencies like Jupyter notebook)
-pip3 install -r requirements.txt
+cd ~/work/opencdms-dev/git
+git clone https://github.com/opencdms/opencdms-demo.git
+pip3 install -r ~/work/opencdms-dev/git/opencdms-demo/requirements.txt
 
 # You can run the jupyter notebook server by typing:
 jupyter notebook
