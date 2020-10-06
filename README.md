@@ -13,6 +13,7 @@ sudo apt-get update
 sudo apt-get install -y libmagick++-dev
 
 # Launch `R` and install `magick`
+R
 install.packages("magick")
 
 # In Python, rpy2 is not currently a dependency in pyopencdms becase
