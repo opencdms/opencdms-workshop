@@ -183,12 +183,15 @@ windrose(obs)
 
 #### Installing PostgreSQL
 
-In this demo we'll install PostgreSQL 12 by using a [docker image](https://docs.timescale.com/latest/getting-started/installation/docker/installation-docker) that also contains the TimescaleDB (time series) and the PostGIS (spatial) extensions.
+In this demo we'll install PostgreSQL by using the [Timescale docker image](https://docs.timescale.com/latest/getting-started/installation/docker/installation-docker) that includes PostgreSQL 12, TimescaleDB (time series) and PostGIS (spatial) extensions.
 
 When the container is running, the database server will be available on port `5432`
 
+See: Docker website for instructions on [installing docker](https://docs.docker.com/engine/install/ubuntu/)
 ```
 sudo docker pull timescale/timescaledb-postgis:latest-pg12
 # Note: change `password` below to a suitable password
 sudo docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg12
+# List running containers
+sudo docker ps
 ```
