@@ -171,3 +171,24 @@ from opencdms.process.climatol import windrose
 ```python
 windrose(obs)
 ```
+
+### Setting up database servers
+
+|            | Postgres | MySQL | Oracle | File-based |
+|------------|:--------:|:-----:|:------:|:----------:|
+| CliDE      | :white_check_mark: ||     |            |
+| Climsoft   |          | :white_check_mark: ||       |
+| MCH        |          | :white_check_mark: ||       |
+| Midas Open |          |       |        | :white_check_mark: |
+
+#### Installing PostgreSQL
+
+In this demo we'll install PostgreSQL 12 by using a [docker image](https://docs.timescale.com/latest/getting-started/installation/docker/installation-docker) that also contains the TimescaleDB (time series) and the PostGIS (spatial) extensions.
+
+When the container is running, the database server will be available on port `5432`
+
+```
+sudo docker pull timescale/timescaledb-postgis:latest-pg12
+# Note: change `password` below to a suitable password
+sudo docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg12
+```
