@@ -188,10 +188,18 @@ In this demo we'll install PostgreSQL by using the [Timescale docker image](http
 When the container is running, the database server will be available on port `5432`
 
 See: Docker website for instructions on [installing docker](https://docs.docker.com/engine/install/ubuntu/)
+You may also want to add the current user to the `docker` group so that you don't have to prefix each command with `sudo` by using: `sudo gpasswd -a $USER docker`
+
 ```
-sudo docker pull timescale/timescaledb-postgis:latest-pg12
+docker pull timescale/timescaledb-postgis:latest-pg12
 # Note: change `password` below to a suitable password
-sudo docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg12
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg12
 # List running containers
-sudo docker ps
+docker ps
+
+docker stop c0eb1c33aad9
+# Show stopped containers
+docker ps -a
+docker start c0eb1c33aad9
+
 ```
