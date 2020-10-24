@@ -201,5 +201,9 @@ docker stop c0eb1c33aad9
 # Show stopped containers
 docker ps -a
 docker start c0eb1c33aad9
+docker exec -it c0eb1c33aad9 env
+  #    POSTGRES_PASSWORD=...
+  #    PG_VERSION=12.4
+  #    TIMESCALEDB_VERSION=1.7.4
 
 ```
