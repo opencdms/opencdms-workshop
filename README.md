@@ -1,6 +1,7 @@
-# opencdms-demo
+# opencdms-workshop
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
+<!--
 ```
 # Install R and header files needed to build Python extensions
 sudo apt install python3-dev r-base
@@ -27,7 +28,7 @@ pip3 install -r ~/work/opencdms-dev/git/opencdms-demo/requirements.txt
 jupyter notebook
 
 ```
-
+-->
 ### The following section gives an example of a Jupyter notebook session
 
 ```python
